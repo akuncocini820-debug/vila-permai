@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pesan vila nyaman untuk liburan Anda di kawasan Puncak, Bogor.">
+    <meta name="theme-color" content="#163b32">
+    <title>Vila Permai | Pemesanan Vila di Puncak</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#konten-utama">Lewati ke konten utama</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="#beranda" aria-label="Vila Permai, beranda">
+                <span class="brand__mark" aria-hidden="true">VP</span>
+                <span>Vila <strong>Permai</strong></span>
+            </a>
+            <nav aria-label="Navigasi utama">
+                <ul class="nav-menu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#vila">Pilihan Vila</a></li>
+                    <li><a href="#pemesanan">Pemesanan</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="konten-utama">
+        <section class="hero" id="beranda" aria-labelledby="hero-title">
+            <div class="container hero__content">
+                <p class="eyebrow">Temukan waktu untuk beristirahat</p>
+                <h1 id="hero-title">Sejuknya Puncak,<br><span>senyaman rumah.</span></h1>
+                <p class="hero__copy">Nikmati liburan yang lebih tenang bersama keluarga di Vila Permai. Pilih vila favorit dan rencanakan menginap Anda dengan mudah.</p>
+                <a class="button button--light" href="#pemesanan">Rencanakan menginap <span aria-hidden="true">↗</span></a>
+                <p class="hero__note"><span aria-hidden="true">✦</span> Puncak, Bogor · Suasana alam yang menenangkan</p>
+            </div>
+            <div class="hero__image" role="img" aria-label="Vila nyaman di tengah suasana hijau Puncak"></div>
+        </section>
+
+        <section class="villa-section section" id="vila" aria-labelledby="villa-title">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Tempat menginap pilihan</p>
+                        <h2 id="villa-title">Pilih vila Anda</h2>
+                    </div>
+                    <p>Setiap vila dirancang untuk menemani momen istirahat Anda, dari liburan keluarga hingga akhir pekan istimewa.</p>
+                </div>
+                <div class="villa-list" id="villaList" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="booking-section section" id="pemesanan" aria-labelledby="booking-title">
+            <div class="container booking-layout">
+                <div class="booking-intro">
+                    <p class="eyebrow">Mudah, praktis, dan nyaman</p>
+                    <h2 id="booking-title">Mulai rencanakan liburan Anda.</h2>
+                    <p>Lengkapi detail menginap. Estimasi biaya akan dihitung otomatis sebelum Anda mengirim pesanan.</p>
+                    <div class="guest-note" id="guestNote" aria-live="polite"></div>
+                    <p class="booking-disclaimer">Halaman demo ini tidak mengirimkan data ke server. Pesanan hanya diringkas di perangkat Anda.</p>
+                </div>
+
+                <div class="booking-panel">
+                    <form id="bookingForm" novalidate>
+                        <div class="form-grid">
+                            <div class="form-group form-group--wide">
+                                <label for="nama">Nama pemesan</label>
+                                <input type="text" id="nama" name="nama" autocomplete="name" placeholder="Nama lengkap Anda" required>
+                                <small class="field-error" id="namaError"></small>
+                            </div>
+                            <div class="form-group form-group--wide">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" placeholder="nama@email.com" required>
+                                <small class="field-error" id="emailError"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkin">Check-in</label>
+                                <input type="date" id="checkin" name="checkin" required>
+                                <small class="field-error" id="checkinError"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout">Check-out</label>
+                                <input type="date" id="checkout" name="checkout" required>
+                                <small class="field-error" id="checkoutError"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlahKamar">Jumlah kamar</label>
+                                <input type="number" id="jumlahKamar" name="jumlahKamar" min="1" max="10" step="1" value="1" required>
+                                <small class="field-hint">Maksimal 10 kamar</small>
+                                <small class="field-error" id="jumlahKamarError"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipeVila">Tipe vila</label>
+                                <select id="tipeVila" name="tipeVila" required></select>
+                            </div>
+                            <fieldset class="form-group form-group--wide facilities">
+                                <legend>Fasilitas tambahan <span>(opsional)</span></legend>
+                                <p class="field-hint">Biaya dihitung per kamar per malam.</p>
+                                <div id="facilityOptions" class="facility-options"></div>
+                            </fieldset>
+                        </div>
+                        <button class="button button--primary" type="submit">Hitung &amp; lihat ringkasan <span aria-hidden="true">→</span></button>
+                    </form>
+
+                    <section class="result-box" id="hasilPesanan" aria-live="polite" aria-atomic="true" aria-labelledby="result-title">
+                        <div class="result-box__empty">
+                            <span class="result-icon" aria-hidden="true">✦</span>
+                            <div>
+                                <h3 id="result-title">Ringkasan pesanan</h3>
+                                <p>Isi formulir untuk melihat estimasi biaya menginap Anda.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="kontak">
+        <div class="container footer-content">
+            <a class="brand brand--footer" href="#beranda">
+                <span class="brand__mark" aria-hidden="true">VP</span>
+                <span>Vila <strong>Permai</strong></span>
+            </a>
+            <p>Penginapan nyaman di kawasan Puncak, Bogor.</p>
+            <p class="copyright">&copy; 2026 Vila Permai. Dibuat untuk menemani waktu istirahat Anda.</p>
+        </div>
+    </footer>
+</body>
+</html>
