@@ -329,3 +329,9 @@ renderVillas();
 renderPilihanForm();
 setTanggalMinimum();
 muatNamaTerakhir();
+// Hapus pesan kesalahan saat pengguna memperbaiki input
+bookingForm.addEventListener("input", () => {
+    if (resultBox.querySelector(".result_box_error")) {
+        resultBox.replaceChildren();
+    }
+});
