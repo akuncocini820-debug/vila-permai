@@ -1,7 +1,7 @@
 # Vila Permai
 
-**Nama mahasiswa:** [Isi nama mahasiswa]  
-**NIM:** [Isi NIM]  
+**Nama mahasiswa:** [AHMAD ALIF HAIQAL]  
+**NIM:** [24011130472]  
 **Nama repository:** `vila-permai`
 
 Website statis untuk melihat pilihan vila dan menghitung estimasi pemesanan vila di Puncak, Bogor. Proyek ini dibuat menggunakan HTML, CSS, dan JavaScript tanpa backend atau database.
